@@ -1,0 +1,20 @@
+# dependencies - huge and regenerated from the lockfile
+node_modules/
+
+# secrets - never committed, never pushed
+.env
+.env.local
+*.pem
+*.key
+
+# test coverage reports
+coverage/
+
+# local logs and backups
+*.log
+backups/
+
+# editor / OS
+.vscode/
+.idea/
+.DS_Store
