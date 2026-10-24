@@ -19,3 +19,10 @@ test("rejects a short password with 400", async () => {
  const res = await request(app).post("/users").send(shortPassword);
  expect(res.status).toBe(400);
 });
+
+test("rejects a duplicate email during signup", async () => {
+ const user = { ...newUser, email: "dup@example.com" };
+ await request(app).post("/users").send(user); // first signup: 201
+ const res = await request(app).post("/users").send(user);
+ expect(res.status).toBe(409);
+});
