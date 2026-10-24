@@ -11,7 +11,10 @@
     "test": "vitest run tests/unit",
     "dev": "node --env-file-if-exists=.env --watch src/server.js",
     "lint": "eslint .",
-    "start": "node src/server.js"
+    "start": "node src/server.js",
+    "migrate": "node --env-file-if-exists=.env scripts/migrate.js up",
+    "migrate:down": "node --env-file-if-exists=.env scripts/migrate.js down",
+    "migrate:status": "node --env-file-if-exists=.env scripts/migrate.js status"
   },
   "repository": {
     "type": "git",
