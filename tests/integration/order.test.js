@@ -23,3 +23,10 @@ test("returns 404 for an unknown order", async () => {
  const res = await request(app).get("/orders/999999");
  expect(res.status).toBe(404);
 });
+
+
+test("rejects an item with quantity zero", async () => {
+ const order = { userId, items: [{ name: "chai", price: 15, qty: 0 }] };
+ const res = await request(app).post("/orders").send(order);
+ expect(res.status).toBe(400);
+});
