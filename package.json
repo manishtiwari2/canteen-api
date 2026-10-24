@@ -14,7 +14,8 @@
     "start": "node src/server.js",
     "migrate": "node --env-file-if-exists=.env scripts/migrate.js up",
     "migrate:down": "node --env-file-if-exists=.env scripts/migrate.js down",
-    "migrate:status": "node --env-file-if-exists=.env scripts/migrate.js status"
+    "migrate:status": "node --env-file-if-exists=.env scripts/migrate.js status",
+    "test:integration": "vitest run tests/integration tests/migrations"
   },
   "repository": {
     "type": "git",
