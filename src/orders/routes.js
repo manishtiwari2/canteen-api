@@ -9,6 +9,12 @@ export function ordersRouter(db) {
  if (!Array.isArray(items) || items.length === 0) {
  return res.status(400).json({ error: "items are required" });
  }
+
+ if (!items.every((i) => Number.isInteger(i.qty) && i.qty >= 1)) {
+ return res.status(400).json({ error: "every item needs a quantity of at least 1" });
+ }
+
+
  const total = orderTotal(items);
  const { rows } = await db.query(
  `INSERT INTO orders (user_id, items, total) VALUES ($1, $2, $3)
