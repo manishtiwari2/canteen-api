@@ -9,3 +9,9 @@ test("adds price times quantity for every item", () => {
 test("an empty order costs nothing", () => {
     expect(orderTotal([])).toBe(0);
 });
+
+// add to tests/unit/price.test.js
+test("subtracts a flat discount", () => {
+ const items = [{ name: "dosa", price: 60, qty: 2 }, { name: "chai", price: 15, qty: 1 }];
+ expect(orderTotal(items, 20)).toBe(115);
+});
